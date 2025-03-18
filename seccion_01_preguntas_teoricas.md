@@ -2,8 +2,7 @@
 
 # **SQL (4 puntos)**
 
-## 1. ¿Cuál es la diferencia entre un JOIN y un UNION en SQL? Proporcione un ejemplo
-de cada uno. (1 punto)
+## 1. ¿Cuál es la diferencia entre un JOIN y un UNION en SQL? Proporcione un ejemplo de cada uno. (1 punto)
 
 - JOIN: Se usa para combinar filas de dos o más tablas basándose en una condición común. Los datos se combinan en columnas.
 - UNION: Se usa para combinar resultados de dos o más consultas en una sola lista de resultados. Los datos se combinan en filas.
@@ -39,7 +38,7 @@ de cada uno. (1 punto)
   SELECT * FROM ventas_totales WHERE total_ventas > 400;
 
 
-#### 3. ¿Qué es la cláusula HAVING en SQL y en qué se diferencia de WHERE? (1 punto) ####
+#### 3. ¿Qué es la cláusula HAVING en SQL y en qué se diferencia de WHERE? (1 punto)
 
 - HAVING: Se utiliza para filtrar grupos de resultados después de que se haya aplicado una agrupación (GROUP BY) o funciones de agregacion (SUM, COUNT, AVG, etc.).
   A diferencia de WHERE, que filtra filas antes de la agrupación, HAVING filtra después de la agrupación.
@@ -51,9 +50,7 @@ de cada uno. (1 punto)
   GROUP BY cliente_id
   HAVING SUM(monto) > 250;
 
-##### 4. Dado el siguiente conjunto de datos en una tabla llamada ventas,escriba una
-consulta SQL para obtener el total de ventas por cliente, incluyendo sólo aquellos
-con un monto total superior a 250. (1 punto):
+##### 4. Dado el siguiente conjunto de datos en una tabla llamada ventas,escriba una consulta SQL para obtener el total de ventas por cliente, incluyendo sólo aquellos con un monto total superior a 250. (1 punto):
 
 id_venta   fecha   cliente_id   monto
 1       2025-03-01   101         200
@@ -80,7 +77,7 @@ id_venta   fecha   cliente_id   monto
 Ejemplo de lista:
 
   Lenguajes = ["Python", "Php", "Java"]
-  print(frutas[1])  # Salida: "Php"
+  print(Lenguajes[1])  # Salida: "Php"
 
 - Diccionario: Es una colección no ordenada de pares clave-valor. Los diccionariosse utilizan para almacenar datos en forma de clave-valor. Se definen usando llaves {}.
 
@@ -97,9 +94,9 @@ Ejemplo de lista:
   3. Matplotlib: Visualización de datos mediante gráficos y diagramas.
 
 
-3. ¿Qué salida generará el siguiente código en Python? (1 punto)
-data = [5, 3, 9, 1]
-print(sorted(data)[-2])
+##### 3. ¿Qué salida generará el siguiente código en Python? (1 punto)
+      data = [5, 3, 9, 1]
+      print(sorted(data)[-2])
 
  - El codigo genera la salida: 5.
     
@@ -124,8 +121,7 @@ Diferencia clave:
 - El tipo de grafico más adecuado para comparar porcentajes de una variable categórica es el gráfico de barras o
   el grafico de torta (es más efectivo cuando hay pocas categorias).
 
-##### 3. ¿Cómo se puede crear un filtro dinámico en Tableau para que el usuario pueda
-seleccionar un rango de fechas? (1 punto)
+##### 3. ¿Cómo se puede crear un filtro dinámico en Tableau para que el usuario pueda seleccionar un rango de fechas? (1 punto)
 
 - Paso a paso:
   1. Arrastrar el campo de la fecha a la seccion de filtros.
