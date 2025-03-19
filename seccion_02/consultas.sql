@@ -1,13 +1,13 @@
-------------------------------------------------------- Sección 2: Prueba práctica SQL (55 puntos) ------------------------------------------------------------------
+------------------------------------------------------ SecciÃ³n 2: Prueba prÃ¡ctica SQL (55 puntos) ------------------------------------------------------------------
 -- Dada la siguiente tabla empleados:
 /*
 id nombre departamento salario fecha_contratacion
 1 Ana Ventas 5000 2020-01-15
 2 Luis IT 6000 2019-08-21
-3 María Ventas 5500 2021-05-10
+3 MarÃ­a Ventas 5500 2021-05-10
 4 Juan IT 7000 2018-11-03
 */
---Consulta 1: Escriba una consulta SQL para obtener el promedio de salario por departamento, excluyendo empleados contratados después del 1 de enero de 2020. (5 puntos).
+--Consulta 1: Escriba una consulta SQL para obtener el promedio de salario por departamento, excluyendo empleados contratados despuÃ©s del 1 de enero de 2020. (5 puntos).
 
 SELECT departamento, AVG(salario) AS promedio_salario
 FROM empleados
@@ -29,7 +29,7 @@ fecha (DATE)
 monto (DECIMAL) */
 
 
---Consulta 2: Escribe una consulta para obtener los 5 clientes con mayor monto total de ventas en los últimos 6 meses. (5 puntos)
+--Consulta 2: Escribe una consulta para obtener los 5 clientes con mayor monto total de ventas en los Ãºltimos 6 meses. (5 puntos)
 
 SELECT c.nombre, c.apellido, SUM(v.monto) AS total_ventas
 FROM clientes c
@@ -39,7 +39,7 @@ GROUP BY c.id
 ORDER BY total_ventas DESC
 LIMIT 5;
 
---Consulta 3: Escribe una consulta para calcular el promedio de ventas por cliente en el último año.(5 puntos)
+--Consulta 3: Escribe una consulta para calcular el promedio de ventas por cliente en el Ãºltimo aÃ±o.(5 puntos)
 
 SELECT c.nombre, c.apellido, AVG(v.monto) AS ticket_promedio
 FROM clientes c
@@ -57,14 +57,14 @@ GROUP BY c.id;
 --Consulta 5: Escribe una consulta para obtener el ingreso promedio de ventas por mes. (10 puntos)
 
 SELECT 
-    YEAR(v.fecha) AS año, 
+    YEAR(v.fecha) AS aÃ±o, 
     MONTH(v.fecha) AS mes, 
     AVG(v.monto) AS ingreso_promedio
 FROM ventas v
 GROUP BY YEAR(v.fecha), MONTH(v.fecha)
-ORDER BY año DESC, mes DESC;	
+ORDER BY aÃ±o DESC, mes DESC;	
 
---Consulta 6: Escribe una consulta para calcular el ranking de clientes por ventas en el último año. (10 puntos)
+--Consulta 6: Escribe una consulta para calcular el ranking de clientes por ventas en el Ãºltimo aÃ±o. (10 puntos)
 
 SELECT c.nombre, c.apellido, 
     SUM(v.monto) AS total_ventas,
