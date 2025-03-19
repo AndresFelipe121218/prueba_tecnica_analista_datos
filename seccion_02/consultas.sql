@@ -31,28 +31,27 @@ monto (DECIMAL) */
 
 --Consulta 2: Escribe una consulta para obtener los 5 clientes con mayor monto total de ventas en los últimos 6 meses. (5 puntos)
 
-SELECT c.nombre, c.apellido, SUM(v.monto) AS total_ventas
+SELECT TOP 5 c.nombre, c.apellido, SUM(v.monto) AS total_ventas
 FROM clientes c
 JOIN ventas v ON c.id = v.cliente_id
 WHERE v.fecha >= DATEADD(MONTH, -6, GETDATE())
-GROUP BY c.id
-ORDER BY total_ventas DESC
-LIMIT 5;
+GROUP BY c.nombre, c.apellido, c.id
+ORDER BY total_ventas DESC;
 
 --Consulta 3: Escribe una consulta para calcular el promedio de ventas por cliente en el último año.(5 puntos)
 
-SELECT c.nombre, c.apellido, AVG(v.monto) AS ticket_promedio
+SELECT c.nombre, c.apellido, AVG(v.monto) AS promedio_ventas
 FROM clientes c
 JOIN ventas v ON c.id = v.cliente_id
 WHERE v.fecha >= DATEADD(YEAR, -1, GETDATE())
-GROUP BY c.id;
+GROUP BY c.nombre, c.apellido, c.id;
 
 --Consulta 4: Escribe una consulta para obtener el nombre completo de los clientes y su monto total de ventas. (10 puntos)
 
 SELECT c.id, CONCAT(c.nombre, ' ', c.apellido) AS nombre_completo_cliente, SUM(v.monto) AS total_ventas
 FROM ventas v
 JOIN clientes c ON v.cliente_id = c.id
-GROUP BY c.id;
+GROUP BY c.id, CONCAT(c.nombre, ' ', c.apellido);
 
 --Consulta 5: Escribe una consulta para obtener el ingreso promedio de ventas por mes. (10 puntos)
 
@@ -72,17 +71,17 @@ SELECT c.nombre, c.apellido,
 FROM clientes c
 JOIN ventas v ON c.id = v.cliente_id
 WHERE v.fecha >= DATEADD(YEAR, -1, GETDATE())
-GROUP BY c.id
+GROUP BY c.nombre, c.apellido, c.id
 ORDER BY ranking;
 
 --Consulta 7: Escribe una consulta para calcular el total de ventas por cliente y luego selecciona solo los clientes cuyo total de ventas es superior al promedio general. (10 puntos)
 
 WITH total_ventas_cliente AS (
     SELECT c.id, CONCAT(c.nombre, ' ', c.apellido) AS nombre_completo, 
-		   SUM(v.monto) AS total_ventas
+           SUM(v.monto) AS total_ventas
     FROM clientes c
     JOIN ventas v ON c.id = v.cliente_id
-    GROUP BY c.id
+    GROUP BY c.id, CONCAT(c.nombre, ' ', c.apellido)
 )
 SELECT * 
 FROM total_ventas_cliente
