@@ -1,4 +1,4 @@
-#Sección 1: Preguntas Teóricas (11 puntos)
+#Sección 1: Preguntas Teóricas (11 puntos) 
 
 # **SQL (4 puntos)**
 
